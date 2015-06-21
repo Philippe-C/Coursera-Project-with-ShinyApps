@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Product Project on Coursera</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data Product Project on Coursera">
+  <meta name="author" content="Philippe-C">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/CourseTrackLogo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Data Product Project on Coursera</h1>
+    <h2>Data Science Specialisation from Johns Hopkins University</h2>
+    <p>Philippe-C<br/>Analyst</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>A political Science Project:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In this Cousera Course we were ask to find a simple idea that we can illustrate with a ShinyApp built on Rstudio with Slidify.
+During US elections campaigns media pundits speak gravely of the deep ideological divisions reflected in a political map of red and blue states, but according to Gelman et al. (2007), much of the analysts are misguided. Indeed, data show a completely different story and he found that in rich states (such as Connecticut) income has a very low correlation with vote preference. Therefore, the red-blue paradigm seems to be over simplistic and innapropriate for the current political landscape in the United States.
+Playing with the App you can build your own conclusion, nonetheless the data suggest that other factors, such as religiosity and cultural values, should be explored for clues to explain voting behavior.</p>
+
+<p>The information given in the App and Github repo (including the R codes: ui.R, server.R; and the data file: US_elections.csv) allow you to reproduce these results and maybe extend them, why not!</p>
+
+<p><a href="http://github.com/Philippe-C/Coursera-Developing-Data-Products-Project">http://github.com/Philippe-C/Coursera-Developing-Data-Products-Project</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>A political Science Question:</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz quiz-single well ">
+  <p>Where did Obama build his victory in 2012?</p>
+
+<ol>
+<li><p>In the South</p></li>
+<li><p>In the Heartland</p></li>
+<li><p><em>North-East and West Coast</em></p></li>
+<li><p>Difficult to Assess</p></li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>The Heartland can be considered as an extension of the Midwest including states such as Idaho and Wyoming. These voters are reputed to be more conservative.</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>Our ShinyApp helps to visualize that President Obama was elected mainly due the voters of the western coast an north-eastern states. Have a look!</p>
+
+<p>Our ShinyApp really helps to answer such a political science question and supports the idea that the classical Red States vs Blue States (Rich vs Poor) paradigm is outdated in terms of prediction of voting behaviour.</p>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Server R Code:</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(googleVis)
+library(shiny)
+## The data: presidential election data by state from 1932 - 2012
+data &lt;- data.frame(read.csv(&quot;US_election.csv&quot;))
+data_graph&lt;- data[,-c(3)]
+time&lt;- seq(1932,2012,4)
+shinyServer(function(input, output) {
+        myYear &lt;- reactive({
+                input$Year
+        })
+        output$Year &lt;- renderText({
+                paste(&quot;Democratic share (%) of the presidential vote in&quot;, myYear())
+        })
+        })
+</code></pre>
+
+<p>In order to respect the 5 pages limitation, the rest of the Server.R code and the ui.R file can not presented here, please refer to the Github repo!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Shiny App:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The link showing the App is given below:</p>
+
+<p><a href="https://philippe-c.shinyapps.io/Coursera-Developing-Data-Products-Project">https://philippe-c.shinyapps.io/Coursera-Developing-Data-Products-Project</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='A political Science Project:'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='A political Science Question:'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Server R Code:'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Shiny App:'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
