@@ -21,7 +21,7 @@ Playing with the App you can build your own conclusion, nonetheless the data sug
 
 The information given in the App and Github repo (including the R codes: ui.R, server.R; and the data file: US_elections.csv) allow you to reproduce these results and maybe extend them, why not!
 
-https://github.com/Philippe-C/Coursera-Project-with-ShinyApps
+http://github.com/Philippe-C/Coursera-Project-with-ShinyApps
 
 --- &radio
 ## A political Science Question: 
