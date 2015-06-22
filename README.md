@@ -10,7 +10,8 @@ You can access the project directly on ShinyApps or view the slides (from Slidif
 
 https://philippe-c.shinyapps.io/Coursera-Developing-Data-Products-Project
 
-http://rpubs.com/Philippe/89141
+http://rpubs.com/Philippe/89371
+
 
 Have fun.
 
